@@ -52,7 +52,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
+    - Alpha: 0.800000011920929
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
@@ -101,6 +101,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -128,22 +132,25 @@ Visualization Manager:
           Value: true
         tool_link:
           Value: true
+        world:
+          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          base_plate:
-            forward_drive_arm:
-              horizontal_arm:
-                claw_support:
-                  gripper_left:
-                    {}
-                  gripper_right:
-                    tool_link:
+        world:
+          base_link:
+            base_plate:
+              forward_drive_arm:
+                horizontal_arm:
+                  claw_support:
+                    gripper_left:
                       {}
+                    gripper_right:
+                      tool_link:
+                        {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -174,7 +181,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 5.825484275817871
+      Distance: 3.969904661178589
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -189,10 +196,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.25539809465408325
+      Pitch: 0.3753979802131653
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.810397744178772
+      Yaw: 0.9003975987434387
     Saved: ~
 Window Geometry:
   Displays:
