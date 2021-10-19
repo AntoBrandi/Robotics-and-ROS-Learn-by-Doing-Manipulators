@@ -61,12 +61,12 @@ of the robot.
 
 ### Built With
 This robot is powered by:
-* PC with Ubuntu 20.04 with ROS Noetic
+* PC with Ubuntu 18.04 with ROS Melodic
 * Arduino UNO
 * SG90 Servo Motors (x4)
 
 And is controlled by:
-* ROS Noetic
+* ROS Melodic
 
 [![Product Name Screen Shot Real][product-screenshot-real]](https://example.com)
 
@@ -79,24 +79,21 @@ Once it's printed and assembled according and connected, there are few configura
 ### Prerequisites
 
 Make sure you install correctly the following required tools before continuing
-* Install Ubuntu 20.04 on PC or in Virtual Machine
-Download the ISO [Ubuntu 20.04](https://ubuntu.com/download/alternative-downloads) for your PC
-* Install [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu) on your Ubuntu 20.04
+* Install Ubuntu 18.04 on PC or in Virtual Machine
+Download the ISO [Ubuntu 18.04](https://ubuntu.com/download/alternative-downloads) for your PC
+* Install [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) on your Ubuntu 18.04
 * Install ROS missing libraries. Some libraries that are used in this project are not in the standard ROS package. Install them with:
 ```sh
-sudo apt-get install ros-noetic-rosserial
+sudo apt-get install ros-melodic-rosserial
 ```
 ```sh
-sudo apt-get install ros-noetic-rosserial-arduino
+sudo apt-get install ros-melodic-rosserial-arduino
 ```
 ```sh
-sudo apt-get install ros-noetic-gazebo-ros-control
+sudo apt-get install ros-melodic-gazebo-ros-control
 ```
 ```sh
-sudo apt-get install ros-noetic-moveit
-```
-```sh
-sudo apt-get install ros-noetic-actionlib-tools
+sudo apt-get install ros-melodic-moveit
 ```
 * Install VS Code and Arduino IDE on your PC in order to build and load the Arduino code on the device
 
@@ -123,7 +120,7 @@ catkin_make
 ```sh
 source devel/setup.bash
 ```
-5. Connect the Arduino UNO to your PC and open the Arduino IDE. Open the [folder](https://github.com/AntoBrandi/Arduino-Bot/tree/noetic/arduinobot_ws/src/arduinobot_controller/arduino)
+5. Connect the Arduino UNO to your PC and open the Arduino IDE. Open the [folder](https://github.com/AntoBrandi/Arduino-Bot/tree/melodic/arduinobot_ws/src/arduinobot_controller/arduino)
 containing the code for the Arduino controller.
 
 
@@ -136,7 +133,7 @@ To launch the ROS simulated robot
 roslaunch arduinobot_bringup sim_complete.launch
 ```
 
-To launch the real robot, connect the Arduino to the PC and upload the code in the [folder](https://github.com/AntoBrandi/Arduino-Bot/tree/noetic/arduinobot_ws/src/arduinobot_controller/arduino/ros_robot_control) on the Arduino controller.
+To launch the real robot, connect the Arduino to the PC and upload the code in the [folder](https://github.com/AntoBrandi/Arduino-Bot/tree/melodic/arduinobot_ws/src/arduinobot_controller/arduino/ros_robot_control) on the Arduino controller.
 Then launch the real robot
 ```sh
 roslaunch arduinobot_bringup complete.launch
