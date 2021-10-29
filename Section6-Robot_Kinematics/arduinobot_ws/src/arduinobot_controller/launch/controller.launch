@@ -1,0 +1,32 @@
+<launch>
+
+    <arg name="is_sim" default="false"/>
+
+
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find arduinobot_controller)/config/trajectory_controllers.yaml" command="load"/>
+
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find arduinobot_controller)/config/joint_state_controller.yaml" command="load"/>
+
+    <!-- If interfacing with the real Hardware -->
+    <group unless="$(arg is_sim)">
+        <!-- Launch the angles converter service -->
+        <node pkg="arduinobot_controller" type="angles_converter.py" name="angles_converter" 
+            respawn="true" output="screen"/>
+
+        <!-- Launch the Hardware interface with the real robot -->
+        <node name="arduinobot_interface_node" pkg="arduinobot_controller" type="arduinobot_interface_node" 
+            ns="/arduinobot" respawn="false" output="screen"/>
+    </group>
+
+    <!-- Load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" 
+        ns="/arduinobot" args="joint_state_controller arm_controller gripper_controller" />
+
+    <!-- Convert joint states to TF transforms for rviz, etc -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+        <remap from="/joint_states" to="/arduinobot/joint_states" />
+    </node>
+
+</launch>
