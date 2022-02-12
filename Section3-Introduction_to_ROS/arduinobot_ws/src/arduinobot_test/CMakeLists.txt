@@ -3,6 +3,7 @@ project(arduinobot_test)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  rospy
   std_msgs
 )
 
@@ -13,14 +14,7 @@ include_directories(
 )
 
 add_executable(simple_cpp_publisher src/simple_publisher.cpp)
+target_link_libraries(simple_cpp_publisher ${catkin_LIBRARIES})
+
 add_executable(simple_cpp_subscriber src/simple_subscriber.cpp)
-
-add_dependencies(simple_cpp_publisher ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_dependencies(simple_cpp_subscriber ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-target_link_libraries(simple_cpp_publisher
-  ${catkin_LIBRARIES}
-)
-target_link_libraries(simple_cpp_subscriber
-  ${catkin_LIBRARIES}
-)
+target_link_libraries(simple_cpp_subscriber ${catkin_LIBRARIES})
