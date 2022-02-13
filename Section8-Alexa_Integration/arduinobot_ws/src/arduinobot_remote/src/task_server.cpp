@@ -75,12 +75,6 @@ public:
     }
 
     // Sends a goal to the moveit API
-    arm_move_group_.setMaxVelocityScalingFactor(0.7);
-    gripper_move_group_.setMaxVelocityScalingFactor(0.7);
-
-    arm_move_group_.setMaxAccelerationScalingFactor(0.1);
-    gripper_move_group_.setMaxAccelerationScalingFactor(0.1);
-
     arm_move_group_.setJointValueTarget(arm_goal_);
     gripper_move_group_.setJointValueTarget(gripper_goal_);
 

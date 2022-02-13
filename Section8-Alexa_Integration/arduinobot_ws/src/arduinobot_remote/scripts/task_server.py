@@ -34,9 +34,6 @@ class TaskServer(object):
         # initialize the ROS interface with the robot via moveit
         moveit_commander.roscpp_initialize(sys.argv)
 
-        # create a robot commander object that will be the interface with the robot
-        self.robot_ = moveit_commander.RobotCommander()
-
         # create a move group commander object that will be the interface with the robot joints
         self.arm_move_group_ = moveit_commander.MoveGroupCommander(ARM_GROUP_NAME)
 
@@ -67,13 +64,7 @@ class TaskServer(object):
         else:
             rospy.logerr('Invalid goal')
 
-        # Sends a goal to the moveit API
-        self.arm_move_group_.set_max_velocity_scaling_factor(0.7)
-        self.gripper_move_group_.set_max_velocity_scaling_factor(0.7)
-
-        self.arm_move_group_.set_max_acceleration_scaling_factor(0.1)
-        self.gripper_move_group_.set_max_acceleration_scaling_factor(0.1)
-
+        # Send goal to moveit via API
         self.arm_move_group_.go(self.arm_goal_, wait=True)
         self.gripper_move_group_.go(self.gripper_goal_, wait=True)
 
