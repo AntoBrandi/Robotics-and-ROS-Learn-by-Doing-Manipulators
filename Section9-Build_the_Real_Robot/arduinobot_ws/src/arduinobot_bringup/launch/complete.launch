@@ -15,7 +15,7 @@
 
     <!-- Launch moveit rviz gui -->
     <include file="$(find arduinobot_moveit)/launch/moveit_rviz.launch">
-        <arg name="config" value="true" />
+        <arg name="rviz_config" value="$(find arduinobot_moveit)/launch/moveit.rviz"/>
     </include>
 
     <!-- Launch the interface with alexa -->
