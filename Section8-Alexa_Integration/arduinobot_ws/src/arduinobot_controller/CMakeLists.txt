@@ -37,14 +37,9 @@ include_directories(
 )
 
 add_executable(angles_converter_cpp src/angles_converter.cpp)
+add_dependencies(angles_converter_cpp ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(angles_converter_cpp ${catkin_LIBRARIES})
+
 add_executable(arduinobot_interface_node src/arduinobot_interface.cpp)
-
-add_dependencies(angles_converter_cpp arduinobot_controller_gencpp)
-add_dependencies(arduinobot_interface_node ${arduinobot_controller_EXPORTED_TARGETS})
-
-target_link_libraries(angles_converter_cpp
-  ${catkin_LIBRARIES}
-)
-target_link_libraries(arduinobot_interface_node
-  ${catkin_LIBRARIES}
-)
+add_dependencies(arduinobot_interface_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(arduinobot_interface_node ${catkin_LIBRARIES})
