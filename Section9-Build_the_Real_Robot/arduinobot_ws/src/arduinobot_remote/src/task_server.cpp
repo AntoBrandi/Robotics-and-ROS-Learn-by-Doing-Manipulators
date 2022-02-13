@@ -81,8 +81,8 @@ public:
     arm_move_group_.setMaxAccelerationScalingFactor(0.1);
     gripper_move_group_.setMaxAccelerationScalingFactor(0.1);
 
-    arm_move_group_.setJointValueTarget(arm_goal);
-    gripper_move_group_.setJointValueTarget(gripper_goal);
+    arm_move_group_.setJointValueTarget(arm_goal_);
+    gripper_move_group_.setJointValueTarget(gripper_goal_);
 
     // blocking functions below, will return after the execution
     arm_move_group_.move();
