@@ -63,6 +63,7 @@ class TaskServer(object):
             self.gripper_goal_ = [0.0, 0.0]
         else:
             rospy.logerr('Invalid goal')
+            return
 
         # Sends a goal to the moveit API
         self.arm_move_group_.go(self.arm_goal_, wait=True)
@@ -90,7 +91,7 @@ if __name__ == '__main__':
     # Inizialize a ROS node called task_server
     rospy.init_node('task_server')
 
-    server = TaskServer(rospy.get_name())
+    server = TaskServer('task_server')
 
     # keeps the node up and running
     rospy.spin()
