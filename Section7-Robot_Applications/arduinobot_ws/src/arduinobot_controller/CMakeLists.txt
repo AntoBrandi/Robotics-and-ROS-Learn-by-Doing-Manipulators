@@ -12,7 +12,6 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(Boost REQUIRED COMPONENTS system)
 
-
 add_service_files(
   FILES
   AnglesConverter.srv
@@ -29,11 +28,15 @@ catkin_package(
   CATKIN_DEPENDS controller_manager
 )
 
-
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
+)
+
+catkin_install_python(PROGRAMS 
+    scripts/angles_converter.py
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 add_executable(angles_converter_cpp src/angles_converter.cpp)

@@ -13,6 +13,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+catkin_install_python(PROGRAMS 
+    scripts/simple_publisher.py 
+    scripts/simple_subscriber.py
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
 add_executable(simple_cpp_publisher src/simple_publisher.cpp)
 target_link_libraries(simple_cpp_publisher ${catkin_LIBRARIES})
 
