@@ -5,12 +5,10 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-  sensor_msgs
   message_generation
   controller_manager
+  hardware_interface
 )
-
-find_package(Boost REQUIRED COMPONENTS system)
 
 add_service_files(
   FILES
@@ -24,17 +22,18 @@ generate_messages(
 
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS controller_manager
+  CATKIN_DEPENDS 
+    controller_manager
+    hardware_interface
 )
 
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
-  ${Boost_INCLUDE_DIRS}
 )
 
 catkin_install_python(PROGRAMS 
-    scripts/angles_converter.py 
+    scripts/angles_converter.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
