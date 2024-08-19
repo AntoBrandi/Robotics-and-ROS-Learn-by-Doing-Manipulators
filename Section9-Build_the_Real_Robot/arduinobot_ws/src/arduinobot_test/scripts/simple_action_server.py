@@ -43,7 +43,7 @@ class FibonacciActionServer(object):
                 break
             self.feedback_.sequence.append(self.feedback_.sequence[i] + self.feedback_.sequence[i-1])
             # publish the feedback
-            self.as_.publishfeedback_(self.feedback_)
+            self.as_.publish_feedback(self.feedback_)
             # this step is not necessary, the sequence is computed at 1 Hz for demonstration purposes
             r.sleep()
           
